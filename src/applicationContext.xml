@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"> 
+	
+	<!-- 开启Spring注解扫描 -->
+	<context:component-scan base-package="com.localhost"></context:component-scan>
+	
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/jkxyshsflower?useUnicode=true&amp;characterEncoding=utf-8"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="root"></property>
+	</bean>
+	
+	<!-- sessionFactory创建 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<!-- 配置Hibernate属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+       			<prop key="hibernate.format_sql">true</prop>
+        		<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+		<!-- 加载对象关系映射文件 -->
+		<property name="mappingResources">
+			<list>
+				<value>com/localhost/vo/Flower.hbm.xml</value>
+				<value>com/localhost/vo/Guashi.hbm.xml</value>
+				<value>com/localhost/vo/Orderitem.hbm.xml</value>
+				<value>com/localhost/vo/Orders.hbm.xml</value>
+				<value>com/localhost/vo/Userdetail.hbm.xml</value>
+				<value>com/localhost/vo/Catalog.hbm.xml</value>
+				<value>com/localhost/vo/User.hbm.xml</value></list>
+		</property>
+	</bean>
+		
+	<!-- 声明事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- 配置Action的对象 -->
+	<!-- <bean id="flowerAction" class="com.localhost.action.flowerAction">
+		<property name="catalogService" ref="catalogService"></property>
+		<property name="flowerService" ref="flowerService"></property>
+	</bean> -->
+	
+	
+<!-- 	
+	<bean id="catalogDAO" class="com.jkxy.dao.impl.CatalogDAO">
+		<property name="sessionfactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="catalogService" class="com.jkxy.service.impl.CatalogService">
+		<property name="catalogDAO" ref="catalogDAO"></property>
+	</bean>
+	
+	<bean id="flowerDAO" class="com.jkxy.dao.impl.FlowerDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="flowerService" class="com.jkxy.service.impl.FlowerService">
+		<property name="flowerDAO" ref="flowerDAO"></property>
+	</bean>
+	
+	
+	<bean id="userDAO" class="com.jkxy.dao.impl.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="userService" class="com.jkxy.service.impl.UserService">
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="userAction" class="com.jkxy.action.userAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<bean id="shoppingAction" class="com.jkxy.action.shoppingAction">
+		<property name="flowerService" ref="flowerService">
+		</property>
+
+	</bean>
+	
+	<bean id="orerDAO" class="com.jkxy.dao.impl.OrderDAO">
+		<property name="sessionFacory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="orderService" class="com.jkxy.service.impl.OrderService">
+		<property name="orderDAO" ref="orerDAO"></property>
+	</bean>
+	<bean id="orderAction" class="com.jkxy.action.orderAction">
+		<property name="orderService" ref="orderService"></property>
+	</bean> -->
+</beans>
