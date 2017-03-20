@@ -2,8 +2,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -26,11 +26,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <s:if test="#session.user.role.equals('admin')">
-    <jsp:forward page="admin_main.jsp"></jsp:forward>  
-
+    	<jsp:forward page="admin_main.jsp"></jsp:forward>  
     </s:if>
- <s:elseif test="#session.user.role.equals('customer')">
-         <jsp:forward page="index.jsp"></jsp:forward>   
-     </s:elseif>
+ 	<s:elseif test="#session.user.role.equals('customer')">
+        <jsp:forward page="index.jsp"></jsp:forward>   
+    </s:elseif>
   </body>
 </html>

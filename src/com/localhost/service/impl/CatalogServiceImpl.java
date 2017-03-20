@@ -6,15 +6,15 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.localhost.dao.ICatalogDAO;
-import com.localhost.service.ICatalogService;
+import com.localhost.dao.CatalogDAO;
+import com.localhost.service.CatalogService;
 import com.localhost.vo.Catalog;
 
-@Service
-public class CatalogService implements ICatalogService {
+@Service("catalogService")
+public class CatalogServiceImpl implements CatalogService {
 	
 	@Resource
-	private ICatalogDAO catalogDAO;
+	private CatalogDAO catalogDAO;
 
 	@Override
 	public List<Catalog> getAllCatalogs() {

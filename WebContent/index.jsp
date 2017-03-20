@@ -2,9 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -29,9 +27,9 @@
 		<div class="left">	
 		<s:action name="browseCatalog" executeResult="true"></s:action>	 
        	</div>
-		<%-- <div class="right">
+		<div class="right">
 			<s:action name="browseNewFlower" executeResult="true"></s:action>
-		</div> --%>
+		</div>
 	</div>
 	<jsp:include page="foot.jsp"></jsp:include>
 </body>

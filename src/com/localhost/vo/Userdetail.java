@@ -1,10 +1,12 @@
 package com.localhost.vo;
 
 import java.util.Date;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 /**
  * Userdetail entity. @author MyEclipse Persistence Tools
  */
-
 public class Userdetail implements java.io.Serializable {
 
 	// Fields
@@ -111,6 +113,16 @@ public class Userdetail implements java.io.Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Userdetail [userid=" + userid + ", user=" + user + ", xb=" + xb
+				+ ", truename=" + truename + ", csrq=" + csrq + ", phone="
+				+ phone + ", email=" + email + ", address=" + address + "]";
 	}
 
 }

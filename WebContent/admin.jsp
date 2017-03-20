@@ -26,11 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <center>  管理员登录
     <s:form action="checkUser" method="post">
-    <s:textfield name="user.username"></s:textfield>
-    <s:password name="user.password"></s:password>
-   <s:hidden name="user.role" value="admin"></s:hidden>  
-    <s:submit></s:submit>
+    	<s:textfield name="user.username"></s:textfield>
+    	<s:password name="user.password"></s:password>
+   		<s:hidden name="user.role" value="admin"></s:hidden>  
+    	<s:submit></s:submit>
     </s:form>
-    </center>
+  </center>
   </body>
 </html>

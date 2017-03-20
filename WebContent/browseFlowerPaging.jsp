@@ -2,9 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -29,14 +27,10 @@
 	<jsp:include page="head.jsp"></jsp:include>
 	<div class="content">
 		<div class="left">
-
 			<s:action name="browseCatalog" executeResult="true"></s:action>
-
-
 		</div>
 		<div class="right">
-		<div ></div>
-  
+			<div ></div>
 			<s:iterator value="#request.flowers" id="flower">
 				<div class="newflower">
 					<s:form action="shoppingAction" method="post" theme="simple">
@@ -45,46 +39,31 @@
 						<s:property value="#flower.flowername" />
 						<br>
 						<s:property value="#flower.price" />元
- <br>
- 数量<s:textfield size="4" name="quantity"></s:textfield>
-	<input type="hidden" name="id" value="<s:property value="#flower.flowerid" />">					
-						
+					 	<br>
+						 数量<s:textfield size="4" name="quantity"></s:textfield>
+						<input type="hidden" name="id" value="<s:property value="#flower.flowerid" />">					
 						<s:submit value="购买"></s:submit>
 					</s:form>
 				</div>
 			</s:iterator>
 			<div style="clear: both">
-			 
-			 <s:set name="pager" value="#request.page" />
-					<s:if test="#pager.hasFirst">
-						<a href="browseFlowerPaging.action?currentPage=1">首页</a>
-					</s:if>
-					<s:if test="#pager.hasPrevious">
-						<a
-							href="browseFlowerPaging.action?currentPage=
-								<s:property  value="#pager.currentPage-1"/>">上一页</a>
-					</s:if>
-					<s:if test="#pager.hasNext">
-						<a
-							href="browseFlowerPaging.action?currentPage=
-							<s:property  value="#pager.currentPage+1"/>">下一页</a>
-					</s:if>
-					<s:if test="#pager.hasLast">
-						<a
-							href="browseFlowerPaging.action?currentPage=
-							<s:property  value="#pager.totalPage"/>">尾页</a>
-					</s:if>
-					<br>
-					当前第
-					<s:property value="#pager.currentPage" />
-					页, 总共
-					<s:property value="#pager.totalPage" />
-					页
-			 
-			 </div>
+			<s:set name="pager" value="#request.page" />
+				<s:if test="#pager.hasFirst">
+					<a href="browseFlowerPaging.action?currentPage=1">首页</a>
+				</s:if>
+				<s:if test="#pager.hasPrevious">
+					<a href="browseFlowerPaging.action?currentPage=<s:property value="#pager.currentPage-1"/>">上一页</a>
+				</s:if>
+				<s:if test="#pager.hasNext">
+					<a href="browseFlowerPaging.action?currentPage=<s:property value="#pager.currentPage+1"/>">下一页</a>
+				</s:if>
+				<s:if test="#pager.hasLast">
+					<a href="browseFlowerPaging.action?currentPage=<s:property value="#pager.totalPage"/>">尾页</a>
+				</s:if>
+				<br>
+				当前第<s:property value="#pager.currentPage" />页, 总共<s:property value="#pager.totalPage" />页
+			</div>
 		</div>
-
-
 	</div>
 
 	<jsp:include page="foot.jsp"></jsp:include>

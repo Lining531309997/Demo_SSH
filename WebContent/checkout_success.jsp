@@ -26,14 +26,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <jsp:include page="head.jsp"></jsp:include>
   <div class="content">
-		<div class="left">			 
-         	</div>
-		<div class="right">
-		 <s:property value="#session.user.username"/>，您的订单<s:property value="#request.order.orderid"/>已下达，我们会在三日内按指定要求送达！
+	<div class="left"></div>
+	<div class="right">
+		<s:property value="#session.user.username"/>，您的订单<s:property value="#request.order.orderid"/>已下达，我们会在三日内按指定要求送达！
 	</div>
-	</div>
-	<jsp:include page="foot.jsp"></jsp:include>
-    <br>
+   </div>
+  <jsp:include page="foot.jsp"></jsp:include>
+   <br>
  
   </body>
 </html>

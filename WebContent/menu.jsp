@@ -2,9 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()	+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -26,13 +24,11 @@
 </head>
 
 <body>
-
 	<s:iterator value="#request.catalogs" id="catalog">
-		<a href="browseFlowerPaging.action?catalogid=
-		    <s:property value=
-		    "#catalog.catalogid"/>
-    &currentPage=1" target="_self"><s:property value="#catalog.catalogname"/></a>   
-     <br><br>
+		<a href="browseFlowerPaging.action?catalogid=<s:property value="#catalog.catalogid"/>&currentPage=1" target="_self">
+			<s:property value="#catalog.catalogname"/>
+		</a>   
+     	<br><br>
 	</s:iterator>
 </body>
 </html>

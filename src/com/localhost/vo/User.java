@@ -3,10 +3,12 @@ package com.localhost.vo;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
-
 public class User implements java.io.Serializable {
 
 	// Fields
@@ -100,4 +102,16 @@ public class User implements java.io.Serializable {
 		this.orderses = orderses;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", username=" + username
+				+ ", password=" + password + ", role=" + role + ", guashi="
+				+ guashi + ", userdetail=" + userdetail + ", orderses="
+				+ orderses + "]";
+	}
+
+	
 }

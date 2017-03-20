@@ -10,10 +10,6 @@ import java.util.Set;
 public class Catalog implements java.io.Serializable {
 
 	// Fields
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer catalogid;				// 分类编号
 	private String catalogname;				// 分类名称
@@ -55,6 +51,16 @@ public class Catalog implements java.io.Serializable {
 
 	public void setFlowers(Set flowers) {
 		this.flowers = flowers;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Catalog [catalogid=" + catalogid + ", catalogname="
+				+ catalogname + ", flowers=" + flowers + ", toString()="
+				+ super.toString() + "]";
 	}
 
 }

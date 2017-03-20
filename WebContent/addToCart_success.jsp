@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -27,14 +27,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <jsp:include page="head.jsp"></jsp:include>
 	<div class="content">
 		<div class="left">
-
 			<s:action name="browseCatalog" executeResult="true"></s:action>
-
 		</div>
-		<div class="right">
-		添加成功！
-		
-		</div>
-		</div>
+		<div class="right">添加成功！</div>
+	</div>
   </body>
 </html>
